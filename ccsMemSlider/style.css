@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: rgb(36, 36, 43);
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.slider {
+    width: 80%;
+    height: 50rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    height: 40rem;
+    flex-grow: 1;
+}
+
+.slide img {
+    display: block;
+    width: 86%;
+    height: 40rem;
+    margin: 0 auto;
+    border-radius: 1em;
+}
+
+p {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.slides-wrapper,
+.inscription-wrapper {
+    position: relative;
+}
+
+.slides-wrapper {
+    width: 80%;
+    height: 40rem;
+    margin: 0 auto;
+}
+
+.inscription-wrapper {
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.slide,
+.inscription {
+    display: none;
+}
+
+.slide.active,
+.inscription.active {
+    display: block;
+}
+
+.inscription {
+    align-self: center;
+}
+
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    width: 10rem;
+}
+
+.controls {
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.controls:hover .btn-control:not(.active){
+    background-color: #fff;
+    border-color: #fff;
+}
+.controls:hover .btn-control.active{
+    border-color: #fff;
+}
+.btn-control {
+    display: block;
+    width: 1em;
+    height: 1em;
+    border: 0.25rem solid rgb(98, 107, 231);
+    border-radius: 100%;
+    background-color: rgb(98, 107, 231);
+    align-self: center;
+}
+
+.btn-control.active {
+    background-color: inherit;
+}
+
+.btn-control.focus {
+    background-color: rgb(107, 107, 107);
+    border-color: rgb(107, 107, 107);
+}
