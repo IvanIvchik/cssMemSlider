@@ -95,12 +95,12 @@ p {
     cursor: pointer;
 }
 
-.controls:hover .btn-control:not(.active) {
+.controls.focus-controls .btn-control:not(.active) {
     background-color: #fff;
     border-color: #fff;
 }
 
-.controls:hover .btn-control.active {
+.controls.focus-controls .btn-control.active {
     border-color: #fff;
 }
 

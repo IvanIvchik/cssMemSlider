@@ -7,6 +7,7 @@ const controlsBtn = document.querySelectorAll('.btn-control');
 
 let index = 0;
 let isEnabled = true;
+let isMousemove = true;
 
 function changeIndex(n) {
     index = (n + slides.length) % slides.length;
@@ -24,6 +25,8 @@ function showSlide(direction) {
     endAnimationShowSlide(direction);
     isEnabled = true;
     controlsBtn[index].classList.add('active');
+    controlsBtn[index].classList.remove('focus');
+    isMousemove = true;
 }
 
 function startAnimationHideSlide(direction) {
@@ -73,6 +76,34 @@ controls.forEach(function (item, indexBullet) {
     });
 });
 
-controlsBtn.forEach(e => e.addEventListener('mousedown', e.classList.add('focus')))
-controlsBtn.forEach(e => e.addEventListener('mouseup', e.classList.remove('focus')))
-    
+controlsBtn.forEach(function (e) {
+    e.addEventListener('mousedown', function () {
+        this.classList.add('focus');
+        isMousemove = false;
+        this.parentNode.classList.remove('focus-controls');
+    });
+});
+
+controls.forEach(function (e) {
+    e.addEventListener('mouseover', function () {
+        if (isMousemove) this.classList.add('focus-controls');
+    })
+})
+
+controls.forEach(function (e) {
+    e.addEventListener('mouseout', function () {
+        this.classList.remove('focus-controls');
+    })
+})
+
+controls.forEach(function (e) {
+    e.addEventListener('touchstart', function () {
+        if (isMousemove) this.classList.add('focus-controls');
+    })
+})
+
+controls.forEach(function (e) {
+    e.addEventListener('touchend', function () {
+        this.classList.remove('focus-controls');
+    })
+})
