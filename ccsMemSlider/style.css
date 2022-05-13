@@ -23,7 +23,6 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    position: relative;
 }
 
 .slide {
@@ -48,6 +47,7 @@ p {
 .slides-wrapper,
 .inscription-wrapper {
     position: relative;
+    overflow: hidden;
 }
 
 .slides-wrapper {
@@ -60,20 +60,26 @@ p {
     width: 30%;
     display: flex;
     align-items: center;
+    height: 200px;
 }
 
 .slide,
 .inscription {
     display: none;
+    animation: 0.4s ease-in-out;
+    position: relative;
 }
 
 .slide.active,
-.inscription.active {
+.inscription.active,
+.slide.next,
+.inscription.next-inscription {
     display: block;
 }
 
 .inscription {
     align-self: center;
+   
 }
 
 .control-panel {
@@ -89,13 +95,15 @@ p {
     cursor: pointer;
 }
 
-.controls:hover .btn-control:not(.active){
+.controls:hover .btn-control:not(.active) {
     background-color: #fff;
     border-color: #fff;
 }
-.controls:hover .btn-control.active{
+
+.controls:hover .btn-control.active {
     border-color: #fff;
 }
+
 .btn-control {
     display: block;
     width: 1em;
@@ -104,6 +112,7 @@ p {
     border-radius: 100%;
     background-color: rgb(98, 107, 231);
     align-self: center;
+    transition: 0.4s all;
 }
 
 .btn-control.active {
@@ -113,4 +122,63 @@ p {
 .btn-control.focus {
     background-color: rgb(107, 107, 107);
     border-color: rgb(107, 107, 107);
+}
+
+.next {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.next-inscription {
+    position: absolute;
+    width: 100%;
+}
+
+.to-left {
+    animation-name: left;
+}
+
+.from-right {
+    animation-name: right;
+}
+
+.to-right {
+    animation-name: right;
+    animation-direction: reverse;
+}
+
+.from-left {
+    animation-name: left;
+    animation-direction: reverse;
+}
+
+.shift-right {
+    animation-name: right;
+    animation-direction: reverse;
+}
+
+.shift-left {
+    animation-name: left;
+    animation-direction: reverse;
+}
+
+@keyframes left {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes right {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: 0;
+    }
 }
