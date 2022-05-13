@@ -103,6 +103,12 @@ controls.forEach(function (e) {
 })
 
 controls.forEach(function (e) {
+    e.addEventListener('touchmove', function () {
+        if (isMousemove) this.classList.add('focus-controls');
+    })
+})
+
+controls.forEach(function (e) {
     e.addEventListener('touchend', function () {
         this.classList.remove('focus-controls');
     })
